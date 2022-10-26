@@ -35,4 +35,8 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: DNF-NPK-Installer
-          path: dist
+          path: |
+            dist/npk_dir
+            dist/config.ini
+            dist/main.exe
+            dist/使用说明.txt
