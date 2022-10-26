@@ -6,7 +6,7 @@ import configparser
 
 config_path = 'config.ini'
 config = configparser.ConfigParser()
-config.read(config_path, encoding='GBK')
+config.read(config_path, encoding='utf-8')
 
 npk_list = []
 dnf_list = []

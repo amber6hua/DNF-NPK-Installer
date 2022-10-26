@@ -26,6 +26,7 @@ jobs:
       - uses: Nuitka/Nuitka-Action@v0.4
         with: 
           output-dir: dist
+          output-file: dist/DnfNpkInstaller.exe
           script-name: main.py
           standalone: true
           enable-plugins: tk-inter
@@ -38,5 +39,5 @@ jobs:
           path: |
             dist/npk_dir
             dist/config.ini
-            dist/main.exe
+            dist/DnfNpkInstaller.exe
             dist/使用说明.txt
