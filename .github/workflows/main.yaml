@@ -30,6 +30,7 @@ jobs:
           script-name: main.py
           standalone: true
           enable-plugins: tk-inter
+          disable-console: true
 
       # Uploads artifact
       - name: Upload Artifact
