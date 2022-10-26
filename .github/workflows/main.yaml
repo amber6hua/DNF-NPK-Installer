@@ -23,13 +23,12 @@ jobs:
           architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
 
       # Build python script into a stand-alone exe
-      - name: Python GUI With Tkinter
-          uses: Nuitka/Nuitka-Action@v0.4
-          with:
-            output-dir: dist
-            script-name: main.py
-            standalone: true
-            enable-plugins: tk-inter
+      - uses: Nuitka/Nuitka-Action@v0.4
+        with: 
+          output-dir: dist
+          script-name: main.py
+          standalone: true
+          enable-plugins: tk-inter
 
       # Uploads artifact
       - name: Upload Artifact
