@@ -1,4 +1,4 @@
-name: Package Application with Pyinstaller
+name: Build Release
 
 on:
   push:
@@ -8,18 +8,32 @@ on:
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
+    # Windows is currently the only platform this action supports
+    runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v2
 
-    - name: PyInstaller Windows
-      uses: JackMcKew/pyinstaller-action-windows@tkinter
-      with:
-        path: ./
+      # Check-out repository
+      - uses: actions/checkout@v3
 
-    - uses: actions/upload-artifact@v2
-      with:
-        name: DNF-NPK-Installer
-        path: dist
+      # Setup Python
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.9' # Version range or exact version of a Python version to use, using SemVer's version range syntax
+          architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
+
+      # Build python script into a stand-alone exe
+      - name: Python GUI With Tkinter
+          uses: Nuitka/Nuitka-Action@v0.4
+          with:
+            output-dir: dist
+            script-name: main.py
+            standalone: true
+            enable-plugins: tk-inter
+
+      # Uploads artifact
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: DNF-NPK-Installer
+          path: dist
