@@ -44,6 +44,17 @@ jobs:
             dist/config.ini
             dist/DnfNpkInstaller.exe
             dist/使用说明.txt
+
+      - name: Archive Release
+        uses: thedoctor0/zip-release@main
+        with:
+          type: 'zip'
+          filename: 'DNF-NPK-Installer.zip'
+          path: |
+            dist/npk_dir
+            dist/config.ini
+            dist/DnfNpkInstaller.exe
+            dist/使用说明.txt
             
       - name: GH Release
         uses: softprops/action-gh-release@v0.1.14
@@ -52,9 +63,10 @@ jobs:
           name: DNF-NPK-Installer
 #          body_path: ${{ github.workspace }}/CHANGELOG.md
           files: |
-            ${{ github.workspace }}/dist/npk_dir
-            ${{ github.workspace }}/dist/config.ini
-            ${{ github.workspace }}/dist/DnfNpkInstaller.exe
-            ${{ github.workspace }}/dist/使用说明.txt
+            dist/DNF-NPK-Installer.zip
+#            ${{ github.workspace }}/dist/npk_dir
+#            ${{ github.workspace }}/dist/config.ini
+#            ${{ github.workspace }}/dist/DnfNpkInstaller.exe
+#            ${{ github.workspace }}/dist/使用说明.txt
 #        env:
 #            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
