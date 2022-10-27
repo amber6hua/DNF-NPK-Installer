@@ -3,10 +3,12 @@ name: Build Release
 on:
   push:
     branches: [ main ]
+#    paths:
+#      - 'CHANGELOG.md'
     tags:
       - 'v*.*.*'
-  pull_request:
-    branches: [ main ]
+#  pull_request:
+#    branches: [ main ]
 
 jobs:
   build:
@@ -40,7 +42,6 @@ jobs:
         with:
           name: DNF-NPK-Installer
           path: |
-            dist/npk_dir
             dist/config.ini
             dist/DnfNpkInstaller.exe
             dist/使用说明.txt
@@ -51,10 +52,11 @@ jobs:
         with:
           type: 'zip'
           filename: dist/DNF-NPK-Installer.zip
+          directory: dist
           path: |
-            dist/config.ini
-            dist/DnfNpkInstaller.exe
-            dist/使用说明.txt
+            config.ini
+            DnfNpkInstaller.exe
+            使用说明.txt
             
       - name: GH Release
         uses: softprops/action-gh-release@v0.1.14
