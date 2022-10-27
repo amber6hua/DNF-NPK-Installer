@@ -52,7 +52,7 @@ jobs:
           type: 'zip'
           filename: dist/DNF-NPK-Installer.zip
           path: |
-            dist/npk_dir/
+            dist/npk_dir/*
             dist/config.ini
             dist/DnfNpkInstaller.exe
             dist/使用说明.txt
