@@ -48,6 +48,5 @@ pyinstaller -F -w main.py
 ![image](https://cdn.staticaly.com/gh/amber6hua/cdn@master/image-hosting/image.sly72eg8x0w.webp)
 
 存放补丁的示例
-![image](https://cdn.staticaly.com/gh/amber6hua/cdn@master/image-hosting/image.sly72eg8x0w.webp)
-
-![image](https://cdn.staticaly.com/gh/amber6hua/cdn@master/image-hosting/image.sly72eg8x0w.webp)
+![image](https://cdn.staticaly.com/gh/amber6hua/cdn@master/image-hosting/image.65wzpg4lxf40.webp)
+![image](https://cdn.staticaly.com/gh/amber6hua/cdn@master/image-hosting/image.2nxcgdiab3g0.webp)
