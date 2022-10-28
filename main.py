@@ -137,10 +137,20 @@ def render_form(select_path, listbox_val, _label, path):
 
     if _label == 'npk':
         if path:
-            npk_list = arr
             npk_dir = path + '/'
             select_path.set(path)
-            listbox_val.set(arr)
+            # 保留 npk NPK 和文件夹
+            new_arr = []
+            for item in arr:
+                _file = npk_dir + item
+                if os.path.isfile(_file):
+                    file_ext = os.path.splitext(_file)[-1]
+                    if file_ext in ['.npk', '.NPK']:
+                        new_arr.append(item)
+                else:
+                    new_arr.append(item)
+            listbox_val.set(new_arr)
+            npk_list = new_arr
 
     else:
         if npk_dir == '':
@@ -224,19 +234,19 @@ def myCopyFile(srcFile, toPath):  # 复制函数
             _list = os.listdir(srcFile)
             for _file in _list:
                 # 获取后缀 npk 或 NPK
-                file_ext = os.path.splitext(_file)[-1]
-
-                if file_ext in ['.npk', '.NPK']:
-                    toFile = toPath + _file.replace(file_ext, '@' + os.path.basename(srcFile) + '@' + file_ext)
-                    _srcFile = srcFile + '/' + _file
-                    if not os.path.isfile(toFile):
-                        shutil.copy(_srcFile, toFile)  # 复制文件
-                        # print("copy %s -> %s" % (srcFile, toFile))
+                _srcFile = srcFile + '/' + _file
+                if os.path.isfile(_srcFile):
+                    file_ext = os.path.splitext(_srcFile)[-1]
+                    if file_ext in ['.npk', '.NPK']:
+                        toFile = toPath + _file.replace(file_ext, '@' + os.path.basename(srcFile) + '@' + file_ext)
+                        if not os.path.isfile(toFile):
+                            shutil.copy(_srcFile, toFile)  # 复制文件
+                            # print("copy %s -> %s" % (srcFile, toFile))
 
     else:
         fpath, fname = os.path.split(srcFile)  # 分离文件名和路径
         toFile = toPath + fname
-        if not os.path.isfile(toFile):
+        if not os.path.exists(toFile):
             shutil.copy(srcFile, toFile)  # 复制文件
             # print("copy %s -> %s" % (srcFile, toFile))
 

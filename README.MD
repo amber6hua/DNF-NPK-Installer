@@ -10,11 +10,14 @@
 > Win10 Win11 其他没试过
 
 ## 使用说明
-
-- 默认补丁公共目录(./npk_dir),可以自定义公共目录
+- 启动exe文件，出现操作界面
+- 初次启动时，选择文件夹，设置存放补丁的公共目录
+- 配置保存在config.ini
 - 把单个补丁文件放入公共目录，也可以把一套补丁整理成一个文件夹后放入公共目录
 - 重启或者重新选择npk目录后，放入的补丁才会加载出来
-- 设置dnf目录（设置自己的dnf目录下的ImagePacks2）
+- 设置dnf中的目录（设置自己的dnf目录下的ImagePacks2也可以设置SoundPack）
+- 在左边的列表框选择要安装的补丁，点击安装
+- 在右边的列表框选择要卸载的补丁，点击卸载
 
 ## 额外
 - 如果想替换语音补丁，可以选择设置的SoundPacks，存放补丁的公共目录，只存放语音补丁，别混起来。
@@ -38,3 +41,13 @@ pip install pyinstaller
 # 利用pyinstaller 把main.py 打包成exe win可执行文件
 pyinstaller -F -w main.py
 ```
+
+## 预览图
+
+主界面
+![image](https://cdn.staticaly.com/gh/amber6hua/cdn@master/image-hosting/image.sly72eg8x0w.webp)
+
+存放补丁的示例
+![image](https://cdn.staticaly.com/gh/amber6hua/cdn@master/image-hosting/image.sly72eg8x0w.webp)
+
+![image](https://cdn.staticaly.com/gh/amber6hua/cdn@master/image-hosting/image.sly72eg8x0w.webp)
